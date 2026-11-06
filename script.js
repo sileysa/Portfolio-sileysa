@@ -46,6 +46,49 @@
     }
   ];
 
+  const CERTIFICATES = [
+    {
+      date: '2024',
+      image: 'images/certificates/sertif-pkm.jpg'
+    },
+    {
+      date: '2026',
+      image: 'images/certificates/sertif-benpel.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/sertif-kopdd.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/koor-acara.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/koor-konsumsi.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/anggota-acara.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/anggota-kestari.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/anggota-humas.png'
+    },
+    {
+      date: '2026',
+      image: 'images/certificates/anggota-humas-2.png'
+    },
+    {
+      date: '2025',
+      image: 'images/certificates/anggota-konsumsi.png'
+    },
+  ];
+
   const SKILLS = ['PHP', 'Laravel', 'MySQL', 'Dart', 'Flutter', 'FastAPI', 'Python', 'Scikit-learn', 'OpenCV', 'Git', 'GitHub', 'Figma'];
 
   const ROLES = ['Informatics Engineering Student', 'Web Developer (Laravel)', 'Mobile Developer (Flutter)', 'Open for Internship'];
@@ -270,6 +313,77 @@
     $('.card-desc', art).textContent = p.desc;
     $('.details-btn', art).addEventListener('click', () => { location.hash = '#/project/' + p.id; });
     grid.appendChild(art);
+  });
+
+  /* ================= Certificates: render ================= */
+
+  const certificateGrid = $('#certificateGrid');
+
+  CERTIFICATES.forEach(cert => {
+    const card = document.createElement('article');
+    card.className = 'certificate-card reveal';
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'certificate-image';
+
+    const img = document.createElement('img');
+    img.src = cert.image;
+    img.alt = 'Sertifikat ' + cert.title;
+    img.loading = 'lazy';
+
+    const info = document.createElement('div');
+    info.className = 'certificate-info';
+
+    const title = document.createElement('h3');
+    title.textContent = cert.title;
+
+    const issuer = document.createElement('p');
+    issuer.textContent = cert.issuer;
+
+    const date = document.createElement('span');
+    date.textContent = cert.date;
+
+    button.appendChild(img);
+
+    button.addEventListener('click', () => {
+      const preview = $('#certificatePreview');
+      const previewImg = $('#certificatePreviewImg');
+
+      previewImg.src = cert.image;
+      previewImg.alt = 'Sertifikat ' + cert.title;
+      preview.classList.add('is-open');
+      preview.setAttribute('aria-hidden', 'false');
+    });
+
+    img.addEventListener('error', () => {
+      card.classList.add('no-certificate');
+    });
+
+    info.append(title, issuer, date);
+    card.append(button, info);
+    certificateGrid.appendChild(card);
+  });
+
+  const certificatePreview = $('#certificatePreview');
+
+  $('#certificateClose').addEventListener('click', () => {
+    certificatePreview.classList.remove('is-open');
+    certificatePreview.setAttribute('aria-hidden', 'true');
+  });
+
+  certificatePreview.addEventListener('click', e => {
+    if (e.target === certificatePreview) {
+      certificatePreview.classList.remove('is-open');
+      certificatePreview.setAttribute('aria-hidden', 'true');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      certificatePreview.classList.remove('is-open');
+      certificatePreview.setAttribute('aria-hidden', 'true');
+    }
   });
 
   const skillGrid = $('#skillGrid');
