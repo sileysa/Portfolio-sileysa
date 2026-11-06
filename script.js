@@ -27,7 +27,7 @@
       desc: 'Aplikasi absensi berbasis web yang dibangun dengan Laravel untuk mencatat kehadiran secara digital.',
       longDesc: 'Absensi Vhiadrink adalah aplikasi absensi berbasis web yang dibangun dengan Laravel untuk mencatat kehadiran secara digital. Aplikasi ini membantu proses pencatatan lebih rapi dan mudah dipantau.',
       tags: ['PHP', 'Laravel', 'MySQL', 'GitHub'],
-      repo: 'https://github.com/sileysa/Absensi_Vhiadrink'
+      repo: 'https://github.com/sileysa/Absensi_Vhiadrink', demo: 'https://robbycatur.web.id/'
     },
     {
       id: 'koskita', title: 'KosKita', image: 'images/koskita.png',
@@ -42,7 +42,7 @@
       desc: 'Proyek pembuatan website Inlet. Buka repository untuk melihat struktur dan kodenya.',
       longDesc: 'Website Inlet adalah proyek pembuatan website. Buka repository di GitHub untuk melihat struktur dan kodenya.',
       tags: ['Git', 'GitHub'],
-      repo: 'https://github.com/sileysa/website-inlet'
+      repo: 'https://github.com/sileysa/website-inlet', demo: 'https://pblinlet.vercel.app/'
     }
   ];
 
